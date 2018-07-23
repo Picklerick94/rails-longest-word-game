@@ -1,0 +1,16 @@
+<h1>My Home Page</h1>
+<h4>word game</h4>
+<div class="card">
+  <% @results.each do |letter| %>
+  <span class="badge badge-pill badge-primary"><%= letter %></span>
+  <% end %>
+</div>
+<div class="form">
+  <p>what's the longest word you can find?</p>
+  <form action="/score" method="post">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= hidden_field_tag :result, @results%>
+    <input type="text" name="new_word" placeholder="new word">
+    <input type="submit" value="play">
+  </form>
+</div>
